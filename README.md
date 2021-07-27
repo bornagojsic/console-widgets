@@ -1,2 +1,2 @@
-# console-menu
-A simple Python menu-based UI for the terminal.
+# console-widgets
+A simple Python UI tool for the terminal.
