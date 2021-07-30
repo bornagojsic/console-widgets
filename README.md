@@ -1,2 +1,2 @@
 # console-widgets
-A simple Python UI tool for the terminal.
+A simple Python UI tool for displaying terminal based widgets.
