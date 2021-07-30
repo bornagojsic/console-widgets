@@ -6,9 +6,9 @@ class ParameterTypeError(Exception):
 		message -- explanation of the error
 	"""
 
-	def __init__(self, parameter, parameter_name, message="The parameter can only be of type string!"):
+	def __init__(self, parameter, parameter_name, parameter_type, message="The parameter can only be of type {}!"):
 		self.parameter = parameter
-		self.message = message.replace("parameter", parameter_name)
+		self.message = message.replace("parameter", parameter_name).replace("{}", parameter_type)
 		self.parameter_name = parameter_name
 		super().__init__(self.message)
 
