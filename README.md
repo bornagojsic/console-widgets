@@ -1,2 +1,2 @@
 # console-widgets
-A simple Python UI package for displaying terminal based widgets.
+A simple Python package for displaying terminal based widgets.
