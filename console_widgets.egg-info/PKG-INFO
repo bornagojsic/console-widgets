@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: console-widgets
+Version: 0.0.5
+Summary: A simple Python UI tool for terminal based widgets
+Home-page: https://github.com/bornagojsic/console-widgets
+Author: Borna Gojsic
+Author-email: bornagojsic@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/bornagojsic/console-widgets/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENCE
+
+# console_widgets
+A simple Python UI tool for displaying terminal based widgets.
+
+
