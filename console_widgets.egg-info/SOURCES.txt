@@ -2,6 +2,10 @@ LICENCE
 README.md
 pyproject.toml
 setup.cfg
+setup.py
+console_widgets/__init__.py
+console_widgets/console_widgets.py
+console_widgets/errors.py
 console_widgets.egg-info/PKG-INFO
 console_widgets.egg-info/SOURCES.txt
 console_widgets.egg-info/dependency_links.txt
