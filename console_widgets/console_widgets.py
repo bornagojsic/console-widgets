@@ -1,5 +1,14 @@
-from .errors import *
+from errors import *
 import inspect
+
+
+### IDEAS
+## ------------------------------------------------------------------------------------------------
+## add a modify_width method which automagically modifies the width of a wigets after using the set method
+## add the possibility to add a multi-line body for the widgets and other attributes
+## ^ done only for the ConsoleWidget currently
+## (+?) change allignment checking from COnsoleBox to another method (kinda done) 
+
 
 
 class Box():
@@ -12,7 +21,7 @@ class Box():
 
 class ConsoleWidget():
 	def __init__(self, title: str = "", subtitle: str = "",
-		body: str = ""):
+		body: str = "", width: int = None):
 		self.title = title
 		self.subtitle = subtitle
 		self.body = body
@@ -24,12 +33,36 @@ class ConsoleWidget():
 		self.title = self.title.upper()
 		self.subtitle = self.subtitle.title()
 
+		self.parse_attributes()
+
 
 	def show(self):
 		for attribute in [self.title, self.subtitle, self.body]:
-			if attribute:
-				print(attribute)
+			if any(attribute):
+				for line in attribute:
+					print(line)
 				print()
+
+
+	def parse_attributes(self):
+		## This method parses multi-line attribtes into lists
+		for attribute, value in self.get_attributes():
+			if type(value) is str:
+				parsed_value = value.split('\n')
+				setattr(self, attribute, parsed_value)
+
+
+	def set(self, attr_val: dict = {}):
+		if type(attr_val) is not dict:
+			raise SetError(attr_val)
+
+		[setattr(self, attribute, value) for attribute, value in attr_val.items()]
+
+		## ! This is a temporary solution to possibly changigng the max width when resetting an attribute
+
+		#if type(self) is ConsoleList():
+		#	self.width = max(17 + len(str(len(items))), max(map(len, map(str, [self.title, self.subtitle] + self.items))))
+
 
 
 	def get_attributes(self):
@@ -41,7 +74,7 @@ class ConsoleWidget():
 
 
 class ConsoleBox(ConsoleWidget):
-	def __init__(self, title: str = "", subtitle: str = "", body: str = "", box: Box = Box(), horizontal_margin: int = 0, vertical_margin: int = 0):
+	def __init__(self, title: str = "", subtitle: str = "", body: str = "", box: Box = Box(), horizontal_margin: int = 0, vertical_margin: int = 0, allignment: str = "CENTER"):
 		super(ConsoleBox, self).__init__()
 		self.title = title
 		self.subtitle = subtitle
@@ -49,31 +82,53 @@ class ConsoleBox(ConsoleWidget):
 		self.box = box
 		self.horizontal_margin = horizontal_margin
 		self.vertical_margin = vertical_margin
+		self.allignment = allignment
 
-		self.width = max(map(len, [self.title, self.subtitle, self.body])) + 2 * self.horizontal_margin
+		self.parse_attributes()
+
+		self.width = max(map(len, self.title + self.subtitle + self.body)) + 2 * self.horizontal_margin
 		self.horizontal_border = self.box.horizontal_symbol * self.width
+
+
+	def return_padding(self, padding):
+		## The function returns the left and right paddings
+		if self.allignment[0] == "CENTER":
+			return (" " * ((padding // 2) + (padding % 2)), " " * (padding // 2))
+		if self.allignment[0] == "LEFT":
+			return ("", " " * padding)
+		if self.allignment[0] == "RIGHT":
+			return (" " * padding, "")
 
 
 	def show(self):
 		## for i in range(self.border_width):
 		print(self.box.corners[0] + self.horizontal_border + self.box.corners[1])
 
-		if self.title:
-			title_padding = self.width - len(self.title)
-			left_t_padding = " " * ((title_padding // 2) + (title_padding % 2))
-			right_t_padding = " " * (title_padding // 2)
-			print(self.box.vertical_symbol + left_t_padding + self.title + right_t_padding + self.box.vertical_symbol)
-			print("├" + self.horizontal_border + "┤")
+		if any(self.title):
+			for title_line in self.title:
+				title_padding = self.width - len(title_line)
+				
+				(left_t_padding, right_t_padding) = self.return_padding(title_padding)
 
-		if self.subtitle:
-			subtitle_padding = self.width - len(self.subtitle)
-			left_s_padding = " " * ((subtitle_padding // 2) + (subtitle_padding % 2))
-			right_s_padding = " " * (subtitle_padding // 2)
-			print(self.box.vertical_symbol + left_s_padding + self.subtitle + right_s_padding + self.box.vertical_symbol)
-			print("├" + self.horizontal_border + "┤")
+				print(self.box.vertical_symbol + left_t_padding + title_line + right_t_padding + self.box.vertical_symbol)
+				print("├" + self.horizontal_border + "┤")
 
-		if self.body:
-			print(self.box.vertical_symbol + self.body + self.box.vertical_symbol)
+		if any(self.subtitle):
+			for sub_line in self.subtitle:
+				subtitle_padding = self.width - len(sub_line)
+				
+				(left_s_padding, right_s_padding) = self.return_padding(subtitle_padding)
+
+				print(self.box.vertical_symbol + left_s_padding + sub_line + right_s_padding + self.box.vertical_symbol)
+				print("├" + self.horizontal_border + "┤")
+
+		if any(self.body):
+			for body_line in self.body:
+				body_padding = self.width - len(body_line)
+				
+				(left_b_padding, right_b_padding) = self.return_padding(body_padding)
+
+				print(self.box.vertical_symbol + left_b_padding + body_line + right_b_padding + self.box.vertical_symbol)
 		print(self.box.corners[2] + self.horizontal_border + self.box.corners[3])
 
 
@@ -88,14 +143,15 @@ class ConsoleList(ConsoleWidget):
 			if attribute != 'items' and not type(value) is str:
 				raise ParameterTypeError(value, attribute, "string")
 
-		self.width = max(map(len, map(str, [self.title, self.subtitle] + self.items)))
+		self.width = max(map(len, map(str, self.title + self.subtitle + self.items)))
 
 
 	def show(self):
 		print("─" * self.width)
 		for attribute in [self.title, self.subtitle]:
 			if attribute:
-				print(attribute)
+				for lin in attribute:
+					print(line)
 				print("─" * self.width)
 
 		for item_number, item in enumerate(self.items):
@@ -120,3 +176,5 @@ class ConsoleSelection(ConsoleList):
 
 		selection = input(f"Select [1-{len(self.items)}]: ")
 		print("─" * self.width)
+
+		return selection
