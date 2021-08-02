@@ -1,4 +1,3 @@
-########################################
 class ParameterTypeError(Exception):
 	"""Exception raised for errors in the input parameter.
 
@@ -15,4 +14,19 @@ class ParameterTypeError(Exception):
 
 	def __str__(self):
 		return f'{self.parameter} is of type {type(self.parameter).__name__}. -> {self.message}'
-#######################################
+
+
+class SetError(Exception):
+	"""Exception raised for errors in the type of the argument to the set method of any ConsoleWidget.
+
+	Attributes:
+		parameter -- input parameter which caused the error
+	"""
+
+	def __init__(self, parameter, message="The argument of the set method can only be of type dict!"):
+		self.parameter = parameter
+		self.message = message
+		super().__init__(self.message)
+
+	def __str__(self):
+		return f'{self.parameter} is of type {type(self.parameter).__name__}. -> {self.message}'
