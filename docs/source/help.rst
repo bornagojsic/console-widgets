@@ -2,4 +2,9 @@ Need some help?
 ===============
 
 
-Conctact username@example.domain
+Contact username@example.domain
+
+Need further help?
+^^^^^^^^^^^^^^^^^^
+
+Please join our IRC channel on freenode under doctuts
