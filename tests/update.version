@@ -1,0 +1,7 @@
+pip uninstall console-widgets;
+python setup.py sdist bdist_wheel;
+twine upload dist/* --verbose;
+[Enter username]: bornagojsic
+[Enter password]: szyKJq43kwNQTWD
+pip install console-widgets;
+python;

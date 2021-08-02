@@ -1,0 +1,2 @@
+Make show() a funtion that just prints code from another function
+that renders the string and returns it (ex. try using __str__)
