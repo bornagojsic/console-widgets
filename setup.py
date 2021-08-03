@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 setuptools.setup(
     name="console_widgets",
     version="0.0.565",
-    author="Borna GOjšić",
+    author="Borna Gojšić",
     author_email="bornagojsic@gmail.com",
     description="A simple Python package for terminal based widgets",
     long_description=long_description,
@@ -22,10 +22,5 @@ setuptools.setup(
     ],
     #package_dir={"": "src"},
     packages=setuptools.find_packages(),
-    python_requires=">=3.6",
-    extras_require={
-        "dev": [
-            "pytest>=3.7"
-        ],
-    }
+    python_requires=">=3.6"
 )

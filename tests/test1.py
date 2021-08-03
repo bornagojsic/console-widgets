@@ -55,13 +55,13 @@ def t5():
 
 
 def t6():
-	c = ConsoleBox(title="naslov", subtitle="naslov2", body="tijelo....")
+	c = ConsoleList(title="Lista", subtitle="borna gojsic", items=[1,2,3,4,5,6])
 
 	c.show()
 
 
 def t7():
-	c = ConsoleList(title="Lista", subtitle="borna gojsic", items=[1,2,3,4,5,6])
+	c = ConsoleBox(title="naslov", subtitle="naslov2", body="tijelo....")
 
 	c.show()
 
@@ -72,4 +72,5 @@ def t8():
 	c.select()
 
 
-[test(t) for t in [t1, t2, t3, t4, t5, t6, t7, t8]]
+# [test(t) for t in [t1, t2, t3, t4, t5, t6, t7, t8]]
+[test(t) for t in [t1, t2, t3, t4, t5, t6]]
