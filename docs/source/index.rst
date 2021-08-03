@@ -23,9 +23,9 @@ Guide
 ^^^^^
 
 .. toctree::
-   :maxdepth: 2
+  :maxdepth: 2
    
-   help.rst
+  help.rst
 
 
 .. glossary::
