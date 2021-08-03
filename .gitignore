@@ -4,3 +4,4 @@ dist/
 build/
 
 console_widgets.egg-info
+update.version
