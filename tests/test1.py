@@ -11,7 +11,7 @@ TEST_NUMBER = 1
 def test(t):
 	global TEST_NUMBER
 	
-	print("------------------------")
+	print("---------------------------------")
 
 	try:
 		print(f"TEST {TEST_NUMBER}")
@@ -19,7 +19,7 @@ def test(t):
 	except Exception as exc:
 		print(traceback.format_exc())
 
-	print("------------------------")
+	print("---------------------------------")
 
 	TEST_NUMBER += 1
 
@@ -55,7 +55,7 @@ def t5():
 
 
 def t6():
-	c = ConsoleList(title="Lista", subtitle="borna gojsic", items=[1,2,3,4,5,6])
+	c = ConsoleList(title="Lista", subtitle="borna gojsic", items=[1, 2, 3, 4, 5, 6])
 
 	c.show()
 

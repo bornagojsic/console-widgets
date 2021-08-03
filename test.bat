@@ -10,9 +10,9 @@ goto alltests
 :alltests
 copy /y NUL tests\tests.results >NUL
 for %%i in (tests/*.py) do call test.bat %%i
-echo ========= Overall results =========
+echo ======== Overall results ========
 type tests\tests.results
-echo ===================================
+echo =================================
 del tests\tests.results
 goto end
 
@@ -29,15 +29,15 @@ rem --- Testing only one example
 
 echo.
 echo Testing %test%.py
-echo ===== Expected result =====
+echo =========== Expected ============
 type tests\expected\%test%.txt
-echo ========= Results =========
+echo ============ Result =============
 set STARTTIME=%TIME%
 python tests\%test%.py > tests\results\%test%.txt 2> tests\results\%test%.stderr
 set ENDTIME=%TIME%
 type tests\expected\%test%.txt
 type tests\results\%test%.stderr
-echo =============================
+echo =================================
 
 rem --- convert STARTTIME and ENDTIME to hours, mins, secs and milisecs
 set options="tokens=1-4 delims=:.,"
@@ -52,10 +52,10 @@ if %secs% lss 0 set /a mins = %mins% - 1 & set /a secs = 60%secs%
 if %mins% lss 0 set /a hours = %hours% - 1 & set /a mins = 60%mins%
 if %hours% lss 0 set /a hours = 24%hours%
 if 1%ms% lss 100 set ms=0%ms%
-set /a totalsecs = %hours%*3600 + %mins%*60 + %secs%
+set /a totalsecs = (%hours%*3600 + %mins%*60 + %secs%)*1000 + %ms%
 
 echo.
-echo Total time: %totalsecs%.%ms%s
+echo Total time: %totalsecs% ms
 echo.
 fc tests\expected\%test%.txt tests\results\%test%.txt >nul&&goto passed||goto failed
 
