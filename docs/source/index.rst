@@ -10,7 +10,10 @@ Welcome to console_widgets' documentation!
 
 console_widgets is a Python package for displaying terminal based widgets.
 
-|shield1| |shield2| |shield3| |shield4|
+|shield1| |shield2| |shield3| 
+
+..
+   |shield4|
 
 -  Github repo: https://github.com/bornagojsic/console-widgets
 -  Documentation: https://console-widgets.readthedocs.io.
