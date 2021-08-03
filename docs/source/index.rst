@@ -1,49 +1,59 @@
-:orphan:
-.. only:: comment
-    
-    console_widgets documentation master file, created by
-    sphinx-quickstart on Tue Aug  3 00:10:10 2021.
-    You can adapt this file completely to your liking, but it should at least
-    contain the root `toctree` directive.
+.. :orphan:
+.. console_widgets documentation master file, created by
+.. sphinx-quickstart on Tue Aug  3 00:10:10 2021.
+.. You can adapt this file completely to your liking, but it should at least
+.. contain the root `toctree` directive.
 
-Welcome to console_widgets's documentation!
+Welcome to console_widgets' documentation!
 ===========================================
 
 
-A simple header
-===============
+console_widgets is a Python package for displaying terminal based widgets.
 
-Some text excpleining some stuff::
+|shield1| |shield2| |shield3| |shield4|
 
-    print("hello")
-    >> hello
+-  Github repo: https://github.com/bornagojsic/console-widgets
+-  Documentation: https://console-widgets.readthedocs.io.
+-  Free software: MIT license
 
 
-Guide
-^^^^^
+Installation
+------------
+
+Download the package using pip::
+
+   pip install console-widgets
+
+
+Usage
+-----
+
+To use console-widgets in a project::
+
+   import console_widgets
+
 
 .. toctree::
   :maxdepth: 2
+  :caption: Table of Contents
+  :glob:
    
-  help.rst
-
-
-.. glossary::
-
-   environment
-      A structure where information about all documents under the root is
-      saved, and used for cross-referencing.  The environment is pickled
-      after the parsing stage, so that successive runs only need to read
-      and parse new and changed documents.
-
-   source directory
-      The directory which, including its subdirectories, contains all
-      source files for one Sphinx project.
+  glossary
+  help
 
 
 Indices and tables
 ==================
 
+.. * :ref:`genindex`
+.. * :ref:`modindex`
+.. * :ref:`search`
+
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
+
+
+.. |shield1| image:: https://img.shields.io/github/languages/top/bornagojsic/console-widgets
+.. |shield2| image:: https://img.shields.io/pypi/v/console-widgets
+.. |shield3| image:: https://img.shields.io/pypi/dd/console-widgets
+.. |shield4| image:: https://img.shields.io/pypi/l/console-widgets
