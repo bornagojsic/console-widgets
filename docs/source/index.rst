@@ -22,7 +22,6 @@ Guide
 
 .. toctree::
    :maxdepth: 2
-
    help.rst
 
 
