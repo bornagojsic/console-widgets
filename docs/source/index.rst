@@ -44,6 +44,8 @@ To use console-widgets in a project::
    
   glossary
   help
+  contributing
+  authors
 
 
 Indices and tables
