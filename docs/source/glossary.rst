@@ -10,16 +10,20 @@ ConsoleWidget is the root object from which all others widgets are derived.
 ``ConsoleWidget( parameter=value, ... )``
 
 .. list-table:: Parameters
-   :widths: 25 75
+   :widths: 25 25 75
    :header-rows: 1
 
    * - Parameter
+     - Default
      - Description
    * - title
+     - ""
      - The title of the widget.
    * - subtitle
+     - ""
      - The subtitle of the widget.
    * - body
+     - ""
      - The body of the widget.
 
 
@@ -32,18 +36,23 @@ ConsoleBox is a basic widget which is surronded by a :ref:`Box()<box>` object.
 ``ConsoleBox( parameter=value, ... )``
 
 .. list-table:: Parameters
-   :widths: 25 75
+   :widths: 25 25 75
    :header-rows: 1
 
    * - Parameter
+     - Default
      - Description
    * - title
+     - ""
      - The title of the widget.
    * - subtitle
+     - ""
      - The subtitle of the widget.
    * - body
+     - ""
      - The body of the widget.
-   * - body
+   * - box
+     - Box()
      - The box surronding the widget.
 
 
@@ -57,14 +66,39 @@ Box is an object for storing the symbols used for building a boy around the widg
 ``Box( parameter=value, ... )``
 
 .. list-table:: Parameters
-   :widths: 25 75
+   :widths: 25 25 75
    :header-rows: 1
 
    * - Parameter
+     - Default
      - Description
    * - horizontal_symbol
+     - "─"
      - The symbol on the horizontal axis of the box.
    * - vertical_symbol
+     - "│"
      - The symbol on the vertical axis of the box.
-   * - corners
-     - A list with the symbols for the corners in the following format: [upper_left, upper_right, lower_left, lower_right].
+   * - left_vertical
+     - "├"
+     - Intersection of the left vertical border with a horizontal border.
+   * - right_vertical
+     - "┤"
+     - Intersection of the right vertical border with a horizontal border
+   * - upper_horizontal
+     - "┬"
+     - Intersection of the upper horizontal border with a vertical border
+   * - lower_horizontal
+     - "┴"
+     - Intersection of the lower horizontal border with a vertical border
+   * - upper_left
+     - "┌"
+     - The symbol on the vertical axis of the box.
+   * - upper_right
+     - "┐"
+     - The symbol on the vertical axis of the box.
+   * - lower_left
+     - "└"
+     - The symbol on the vertical axis of the box.
+   * - lower_right
+     - "┘"
+     - The symbol on the vertical axis of the box.

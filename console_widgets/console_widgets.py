@@ -7,16 +7,31 @@ import inspect
 ## add a modify_width method which automagically modifies the width of a wigets after using the set method
 ## add the possibility to add a multi-line body for the widgets and other attributes
 ## ^ done only for the ConsoleWidget currently
-## (+?) change allignment checking from COnsoleBox to another method (kinda done) 
-
+## (+?) change allignment checking from COnsoleBox to another method (kinda done)
+## (easy!) add Corners() class for the Box() class so that you don't need to use lists
 
 
 class Box():
-	def __init__(self, horizontal_symbol: str = "─", vertical_symbol: str = "│", corners: list = ["┌", "┐", "└", "┘"]):
+	def __init__(self, horizontal_border: str = "─", vertical_border: str = "│",
+			left_vertical: str = "├", right_vertical: str = "┤", upper_horizontal: str = "┬", lower_horizontal: str = "┴",
+			upper_left: str = "┌", upper_right: str = "┐", lower_left: str = "└", lower_right: str = "┘"):
 		super(Box, self).__init__()
-		self.horizontal_symbol = horizontal_symbol
-		self.vertical_symbol = vertical_symbol
-		self.corners = corners
+		
+		self.horizontal_border = horizontal_border
+		self.vertical_border = vertical_border
+
+		## intersections
+		self.left_vertical = left_vertical
+		self.right_vertical = right_vertical
+		self.upper_horizontal = upper_horizontal
+		self.lower_horizontal = lower_horizontal
+
+
+		## corners
+		self.upper_left = upper_left
+		self.upper_right = upper_right
+		self.lower_right = lower_right
+		self.lower_left = lower_left
 		
 
 class ConsoleWidget():
@@ -87,7 +102,7 @@ class ConsoleBox(ConsoleWidget):
 		self.parse_attributes()
 
 		self.width = max(map(len, self.title + self.subtitle + self.body)) + 2 * self.horizontal_margin
-		self.horizontal_border = self.box.horizontal_symbol * self.width
+		self.horizontal_border = self.box.horizontal_border * self.width
 
 
 	def return_padding(self, padding):
@@ -102,7 +117,7 @@ class ConsoleBox(ConsoleWidget):
 
 	def show(self):
 		## for i in range(self.border_width):
-		print(self.box.corners[0] + self.horizontal_border + self.box.corners[1])
+		print(self.box.upper_left + self.horizontal_border + self.box.upper_right)
 
 		if any(self.title):
 			for title_line in self.title:
@@ -110,8 +125,8 @@ class ConsoleBox(ConsoleWidget):
 				
 				(left_t_padding, right_t_padding) = self.return_padding(title_padding)
 
-				print(self.box.vertical_symbol + left_t_padding + title_line + right_t_padding + self.box.vertical_symbol)
-				print("├" + self.horizontal_border + "┤")
+				print(self.box.vertical_border + left_t_padding + title_line + right_t_padding + self.box.vertical_border)
+				print(self.box.left_vertical + self.horizontal_border + self.box.right_vertical)
 
 		if any(self.subtitle):
 			for sub_line in self.subtitle:
@@ -119,8 +134,8 @@ class ConsoleBox(ConsoleWidget):
 				
 				(left_s_padding, right_s_padding) = self.return_padding(subtitle_padding)
 
-				print(self.box.vertical_symbol + left_s_padding + sub_line + right_s_padding + self.box.vertical_symbol)
-				print("├" + self.horizontal_border + "┤")
+				print(self.box.vertical_border + left_s_padding + sub_line + right_s_padding + self.box.vertical_border)
+				print(self.box.left_vertical + self.horizontal_border + self.box.right_vertical)
 
 		if any(self.body):
 			for body_line in self.body:
@@ -128,8 +143,8 @@ class ConsoleBox(ConsoleWidget):
 				
 				(left_b_padding, right_b_padding) = self.return_padding(body_padding)
 
-				print(self.box.vertical_symbol + left_b_padding + body_line + right_b_padding + self.box.vertical_symbol)
-		print(self.box.corners[2] + self.horizontal_border + self.box.corners[3])
+				print(self.box.vertical_border + left_b_padding + body_line + right_b_padding + self.box.vertical_border)
+		print(self.box.lower_left + self.horizontal_border + self.box.lower_right)
 
 
 class ConsoleList(ConsoleWidget):
@@ -175,6 +190,6 @@ class ConsoleSelection(ConsoleList):
 		super(ConsoleSelection, self).show()
 
 		selection = input(f"Select [1-{len(self.items)}]: ")
-		print("─" * self.width)
+		#print("─" * self.width)
 
 		return selection
