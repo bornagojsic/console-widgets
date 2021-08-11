@@ -78,18 +78,21 @@ Box is an object for storing the symbols used for building a boy around the widg
    * - vertical_symbol
      - "│"
      - The symbol on the vertical axis of the box.
+   * - full_intersection
+     - "┼"
+     - Intersection of a horizontal and a vetrical line.
    * - left_vertical
      - "├"
-     - Intersection of the left vertical border with a horizontal border.
+     - Intersection of the left vertical border with a horizontal line.
    * - right_vertical
      - "┤"
-     - Intersection of the right vertical border with a horizontal border
+     - Intersection of the right vertical border with a horizontal line.
    * - upper_horizontal
      - "┬"
-     - Intersection of the upper horizontal border with a vertical border
+     - Intersection of the upper horizontal border with a vertical line.
    * - lower_horizontal
      - "┴"
-     - Intersection of the lower horizontal border with a vertical border
+     - Intersection of the lower horizontal border with a vertical line.
    * - upper_left
      - "┌"
      - The symbol of the upper left corner.

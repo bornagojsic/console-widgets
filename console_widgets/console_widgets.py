@@ -12,20 +12,21 @@ import inspect
 
 
 class Box():
-	def __init__(self, horizontal_border: str = "─", vertical_border: str = "│",
+	def __init__(self, type: str = "Default", horizontal_border: str = "─", vertical_border: str = "│", full_intersection: str = "┼",
 			left_vertical: str = "├", right_vertical: str = "┤", upper_horizontal: str = "┬", lower_horizontal: str = "┴",
 			upper_left: str = "┌", upper_right: str = "┐", lower_left: str = "└", lower_right: str = "┘"):
 		super(Box, self).__init__()
 		
+		## borders
 		self.horizontal_border = horizontal_border
 		self.vertical_border = vertical_border
 
 		## intersections
+		self.full_intersection = full_intersection
 		self.left_vertical = left_vertical
 		self.right_vertical = right_vertical
 		self.upper_horizontal = upper_horizontal
 		self.lower_horizontal = lower_horizontal
-
 
 		## corners
 		self.upper_left = upper_left
