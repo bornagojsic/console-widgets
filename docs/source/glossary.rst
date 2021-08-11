@@ -92,13 +92,13 @@ Box is an object for storing the symbols used for building a boy around the widg
      - Intersection of the lower horizontal border with a vertical border
    * - upper_left
      - "┌"
-     - The symbol on the vertical axis of the box.
+     - The symbol of the upper left corner.
    * - upper_right
      - "┐"
-     - The symbol on the vertical axis of the box.
+     - The symbol of the upper right corner.
    * - lower_left
      - "└"
-     - The symbol on the vertical axis of the box.
+     - The symbol of the lower left corner.
    * - lower_right
      - "┘"
-     - The symbol on the vertical axis of the box.
+     - The symbol of the lower right corner.
