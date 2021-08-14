@@ -51,7 +51,7 @@ onetest () {
 	cat  tests/expected/$test.txt
 	echo ============ Result =============
 	STARTTIME=$(date +%s%3N)
-	python tests/$test.py > tests/results/$test.txt 2> tests/results/$test.stderr
+	python tests/$test.py < tests/input/$test.in > tests/results/$test.txt 2> tests/results/$test.stderr
 	ENDTIME=$(date +%s%3N)
 	cat  tests/results/$test.txt
 	cat  tests/results/$test.stderr
