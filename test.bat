@@ -33,7 +33,7 @@ echo =========== Expected ============
 type tests\expected\%test%.txt
 echo ============ Result =============
 set STARTTIME=%TIME%
-python tests\%test%.py > tests\results\%test%.txt 2> tests\results\%test%.stderr
+python tests\%test%.py < tests/input/%test%.in > tests\results\%test%.txt 2> tests\results\%test%.stderr
 set ENDTIME=%TIME%
 type tests\expected\%test%.txt
 type tests\results\%test%.stderr

@@ -30,3 +30,19 @@ class SetError(Exception):
 
 	def __str__(self):
 		return f'{self.parameter} is of type {type(self.parameter).__name__}. -> {self.message}'
+
+
+class ParseError(Exception):
+	"""Exception raised for errors in the type of the argument to the parse_text function.
+
+	Attributes:
+		text -- input text which caused the error
+	"""
+
+	def __init__(self, text, message="The argument of the parse_text function can only be of type str!"):
+		self.text = text
+		self.message = message
+		super().__init__(self.message)
+
+	def __str__(self):
+		return f'{self.text} is of type {type(self.text).__name__}. -> {self.message}'

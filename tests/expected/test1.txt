@@ -10,30 +10,6 @@ TEST 2
 ---------------------------------
 ---------------------------------
 TEST 3
-Traceback (most recent call last):
-File "/home/borna/Programming/GitHub/console-widgets/tests/test1.py", line 18, in test
-t()
-File "/home/borna/Programming/GitHub/console-widgets/tests/test1.py", line 40, in t3
-c = ConsoleWidget(title="Naslov", subtitle="cijena rada", body=25)
-File "/home/borna/.local/lib/python3.9/site-packages/console_widgets/console_widgets.py", line 22, in __init__
-raise ParameterTypeError(value, attribute, "string")
-console_widgets.errors.ParameterTypeError: 25 is of type int. -> The body can only be of type string!
-
----------------------------------
----------------------------------
-TEST 4
-Traceback (most recent call last):
-File "/home/borna/Programming/GitHub/console-widgets/tests/test1.py", line 18, in test
-t()
-File "/home/borna/Programming/GitHub/console-widgets/tests/test1.py", line 46, in t4
-c = ConsoleWidget(title=[1,2], subtitle=12635, body=25.1)
-File "/home/borna/.local/lib/python3.9/site-packages/console_widgets/console_widgets.py", line 22, in __init__
-raise ParameterTypeError(value, attribute, "string")
-console_widgets.errors.ParameterTypeError: 25.1 is of type float. -> The body can only be of type string!
-
----------------------------------
----------------------------------
-TEST 5
 NASLOV
 
 Podnaslov
@@ -42,7 +18,7 @@ tijelo
 
 ---------------------------------
 ---------------------------------
-TEST 6
+TEST 4
 ────────────
 Lista
 ────────────
@@ -55,4 +31,28 @@ borna gojsic
 5. 5
 6. 6
 ────────────
+---------------------------------
+---------------------------------
+TEST 5
+┌──────────┐
+│  naslov  │
+├──────────┤
+│  naslov2 │
+├──────────┤
+│tijelo....│
+└──────────┘
+---------------------------------
+---------------------------------
+TEST 6
+──────────────────
+Select
+──────────────────
+Items
+──────────────────
+1. Go right
+2. Go left
+3. Do nothing
+4. Go back
+──────────────────
+Select [1-4]: ──────────────────
 ---------------------------------

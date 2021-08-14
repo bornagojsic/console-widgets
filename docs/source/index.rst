@@ -43,6 +43,7 @@ To use console-widgets in a project::
   :glob:
    
   glossary
+  themes
   help
   contributing
   authors
