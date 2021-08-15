@@ -46,6 +46,7 @@ def write_roman(num):
 
 ## add box and list themes
 
+## remove subtitles from all objects, not just boxes
 
 def parse_text(text):
 	if type(text) is str:
@@ -96,7 +97,6 @@ class ConsoleBox(ConsoleWidget):
 		super(ConsoleBox, self).__init__()
 		global box_themes
 		self.title = parse_text(title)
-		self.subtitle = parse_text(subtitle)
 		self.body = parse_text(body)
 		self.horizontal_margin = horizontal_margin
 		self.vertical_margin = vertical_margin
@@ -137,15 +137,6 @@ class ConsoleBox(ConsoleWidget):
 				(left_t_padding, right_t_padding) = self.return_padding(title_padding)
 
 				print(self.left_border + left_t_padding + title_line + right_t_padding + self.right_border)
-				print(self.left_vertical + self.horizontal_line * self.width + self.right_vertical)
-
-		if any(self.subtitle):
-			for sub_line in self.subtitle:
-				subtitle_padding = self.width - len(sub_line)
-				
-				(left_s_padding, right_s_padding) = self.return_padding(subtitle_padding)
-
-				print(self.left_border + left_s_padding + sub_line + right_s_padding + self.right_border)
 				print(self.left_vertical + self.horizontal_line * self.width + self.right_vertical)
 
 		if any(self.body):
