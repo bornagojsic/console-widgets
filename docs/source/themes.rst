@@ -8,27 +8,27 @@ Box themes
 ----------
 
 
- - Default
+Default:
 
 |default_box|
 
- - Double
+Double:
 
 |double_box|
 
- - Wide
+Wide:
 
 |wide_box|
 
- - Dots
+Dots:
  
 |dots_box|
 
- - Pluses
+Pluses:
  
 |pluses_box|
 
- - Asterisks
+Asterisks:
 
 |asterisks_box|
 
