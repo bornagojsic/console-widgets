@@ -14,7 +14,7 @@ def test(t):
 	print("---------------------------------")
 
 	try:
-		print(f"TEST {TEST_NUMBER}")
+		print(f"TEST CASE {TEST_NUMBER}")
 		t()
 	except Exception as exc:
 		print(traceback.format_exc())
@@ -58,6 +58,11 @@ def t6():
 	c = ConsoleSelection(title="Select", subtitle="Items", items=["Go right", "Go left", "Do nothing", "Go back"])
 
 	s = c.select()
+
+
+def t7():
+	c = ConsoleBox()
+	c.show()
 
 
 def t100S():
