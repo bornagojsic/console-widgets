@@ -110,7 +110,7 @@ onetest () {
 	fi
 	
 	
-	if [[ $1 == false ]]
+	if [[ $compact == false ]]
 	then
 		cat  tests/results/$test.txt
 		cat  tests/results/$test.stderr
