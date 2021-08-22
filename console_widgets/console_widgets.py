@@ -1,5 +1,5 @@
-from errors import *
-from themes import *
+from .errors import *
+from .themes import *
 import inspect
 from collections import OrderedDict
 
